@@ -26,7 +26,9 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.SurfaceView;
 import android.view.WindowManager;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -151,6 +153,10 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
      */
     private MatOfPoint2f approxCurve;
 
+    private TextView tv_camera_test;
+    private Switch mySwitch;
+    private int myCheck = 0;
+
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
@@ -197,7 +203,8 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
         // get the OverlayView responsible for displaying images on top of the camera
         //overlayView = (OverlayView) findViewById(R.id.overlay_view);
 
-        mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.java_camera_view);
+        bindWidget();
+
         // Michael Troger
         if (FIXED_FRAME_SIZE) {
             mOpenCvCameraView.setMaxFrameSize(FRAME_SIZE_WIDTH, FRAME_SIZE_HEIGHT);
@@ -208,8 +215,36 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
 
         mi = new ActivityManager.MemoryInfo();
         activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+
+
+        mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    myCheck = 1;
+                    tv_camera_test.setText("SwitchOn ==> " + myCheck );
+                    Log.d("myCheck => " , myCheck + " ");
+
+                }else{
+                    myCheck = 0;
+                    tv_camera_test.setText("SwitchOff ==> " + myCheck);
+                    Log.d("myCheck => " , myCheck + " ");
+
+                }
+            }
+        });
+
+
+
+
     }
 
+    private void bindWidget() {
+        tv_camera_test = (TextView) findViewById(R.id.tv_camera_test);
+        mySwitch = (Switch) findViewById(R.id.mySwitch_show);
+        mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.java_camera_view);
+
+    }
 
 
     @Override
@@ -225,9 +260,13 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
     }
 
     @Override
-    public void onResume()
-    {
+    public void onResume() {
         super.onResume();
+
+        myCheck = 0;
+        mySwitch.setChecked(false);
+        Log.d("myCheck => ", myCheck + " ");
+        Log.d("mySwitch => " ,  mySwitch + " ");
 
         if (!OpenCVLoader.initDebug()) {
             Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
@@ -308,6 +347,9 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
         );
 
         // loop over all found contours
+        if(myCheck == 1 ){
+
+
         for (MatOfPoint cnt : contours) {
             MatOfPoint2f curve = new MatOfPoint2f(cnt.toArray());
 
@@ -319,31 +361,30 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                     true
             );
 
-            int numberVertices = (int)approxCurve.total();
+            int numberVertices = (int) approxCurve.total();
             double contourArea = Imgproc.contourArea(cnt);
 
             Log.d(TAG, "vertices:" + numberVertices);
 
             // ignore to small areas
             if (Math.abs(contourArea) < 100
-                   // || !Imgproc.isContourConvex(
-                   ) {
+                // || !Imgproc.isContourConvex(
+                    ) {
                 continue;
             }
-
 
 
             //สร้างตัวแปร สำหรับสร้าง Intent หน้าใหม่
             Intent intent;
 
             // triangle detection
-            if(numberVertices == 3) {
+            if (numberVertices == 3) {
                 if (DISPLAY_IMAGES) {
                     doSomethingWithContent("triangle");
                 } else {
                     setLabel(dst, "Traingle", cnt);
                     intent = new Intent(MainActivity.this, DetailCamera.class);
-                    intent.putExtra("Shape" , 3);
+                    intent.putExtra("Shape", 3);
                     startActivity(intent);
                     //mySetView(3);
                 }
@@ -367,7 +408,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                 Collections.sort(cos);
 
                 double mincos = cos.get(0);
-                double maxcos = cos.get(cos.size()-1);
+                double maxcos = cos.get(cos.size() - 1);
 
                 // rectangle detection
                 if (numberVertices == 4
@@ -375,17 +416,16 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                         ) {
                     if (DISPLAY_IMAGES) {
                         //doSomethingWithContent("rectangle");
-                    }
-                    else {
+                    } else {
                         setLabel(dst, "Rectangle", cnt);
                         intent = new Intent(MainActivity.this, DetailCamera.class);
-                        intent.putExtra("Shape" , 4);
+                        intent.putExtra("Shape", 4);
                         startActivity(intent);
                         //mySetView(4);
                     }
                 }
                 // pentagon detection
-                else if(numberVertices == 5
+                else if (numberVertices == 5
                         && mincos >= -0.34 && maxcos <= -0.27) {
                     if (!DISPLAY_IMAGES) {
                         setLabel(dst, "Penta", cnt);
@@ -410,22 +450,23 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                         1 - (
                                 r.width / r.height
                         )
-                    ) <= 0.2 &&
-                    Math.abs(
-                        1 - (
-                                contourArea / (Math.PI * radius * radius)
-                        )
-                    ) <= 0.2
-                    ) {
+                ) <= 0.2 &&
+                        Math.abs(
+                                1 - (
+                                        contourArea / (Math.PI * radius * radius)
+                                )
+                        ) <= 0.2
+                        ) {
                     if (!DISPLAY_IMAGES) {
                         setLabel(dst, "Circle", cnt);
                         intent = new Intent(MainActivity.this, DetailCamera.class);
-                        intent.putExtra("Shape" , 99);
+                        intent.putExtra("Shape", 99);
                         startActivity(intent);
                         //mySetView(99);
                     }
                 }
 
+            }
             }
 
 
