@@ -1,0 +1,70 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.toshihiro.geometryphotos.FormulatorGeometry"
+    android:orientation="vertical"
+    android:background="#b8b4f5">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/formula_geometry"
+        android:id="@+id/txtForGeo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10sp"
+        android:textSize="@dimen/h1"
+        android:padding="5dp"
+        android:textColor="#000dff" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:background="#f68484">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/square"
+            android:id="@+id/txtSquare"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/h2"
+            android:layout_margin="3dp"
+            android:background="#fea4a4"
+            android:textColor="#000dff" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/triangle"
+            android:id="@+id/txtTriangle"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/h2"
+            android:layout_margin="3dp"
+            android:background="#fea4a4"
+            android:textColor="#000dff" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/circle"
+            android:id="@+id/txtCircle"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/h2"
+            android:layout_margin="3dp"
+            android:background="#fea4a4"
+            android:textColor="#000dff" />
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView" />
+</LinearLayout>

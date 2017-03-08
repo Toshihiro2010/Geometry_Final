@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">GeometryPhoto</string>
+
+    <string name="camera">เปิดกล้อง</string>
+    <string name="geometry_elearnning">รูปเรขาคณิต</string>
+    <string name="formula_geometry">สูตรการหาพื้นที่</string>
+    <string name="howto">วิธีใช้</string>
+    <string name="exit">ออกจากโปรแกรม</string>
+
+    <string name="square">สี่เหลี่ยม</string>
+    <string name="triangle">สามเหลี่ยม</string>
+    <string name="circle">วงกลม</string>
+
+
+</resources>
