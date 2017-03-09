@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ssru.toshihiro.geometryphoto" >
+    package="ssru.toshihiro.geometryphoto">
 
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -27,12 +27,11 @@
     <application
         android:icon="@drawable/logo_toshiro"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-        >
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         <activity
             android:name="com.toshihiro.geometryphotos.Main2Activity"
             android:configChanges="keyboardHidden|orientation"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,6 +45,9 @@
         <activity
             android:name="com.toshihiro.geometryphotos.DetailCamera"
             android:screenOrientation="landscape" />
+        <activity
+            android:name="com.toshihiro.geometryphotos.LearnShape"
+            android:label="@string/title_activity_learn_shape"></activity>
     </application>
 
 </manifest>

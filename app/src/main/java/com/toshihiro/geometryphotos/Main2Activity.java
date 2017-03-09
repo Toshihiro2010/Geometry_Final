@@ -67,7 +67,7 @@ public class Main2Activity extends Activity implements View.OnClickListener {
     }
 
     private void learnShape() {
-        String url = "http://www.google.co.th";
+        String url = "http://www.csclub.ssru.ac.th/s56122201044/finalproject/pdf_file/Report_56122201044.pdf";
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         startActivity(Intent.createChooser(intent, "Open with"));

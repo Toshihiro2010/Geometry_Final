@@ -10,6 +10,7 @@
     <string name="square">สี่เหลี่ยม</string>
     <string name="triangle">สามเหลี่ยม</string>
     <string name="circle">วงกลม</string>
+    <string name="title_activity_learn_shape">LearnShape</string>
 
 
 </resources>
