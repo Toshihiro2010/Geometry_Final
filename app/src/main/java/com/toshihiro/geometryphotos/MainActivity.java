@@ -19,7 +19,10 @@ import org.w3c.dom.Text;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -284,11 +287,15 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
             mOpenCvCameraView.disableView();
     }
 
-    public void onCameraViewStarted(int width, int height) {}
+    public void onCameraViewStarted(int width, int height){
 
-    public void onCameraViewStopped() {}
+    }
 
-    public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
+    public void onCameraViewStopped(){
+
+    }
+
+    public Mat onCameraFrame(CvCameraViewFrame inputFrame){
         if (LOG_MEM_USAGE) {
             activityManager.getMemoryInfo(mi);
             long availableMegs = mi.availMem / 1048576L; // 1024 x 1024
@@ -508,8 +515,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
      * Helper function to find a cosine of angle between vectors
      * from pt0->pt1 and pt0->pt2
      */
-    private static double angle(Point pt1, Point pt2, Point pt0)
-    {
+    private static double angle(Point pt1, Point pt2, Point pt0) {
         double dx1 = pt1.x - pt0.x;
         double dy1 = pt1.y - pt0.y;
         double dx2 = pt2.x - pt0.x;
@@ -570,6 +576,31 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                 //overlayView.changeCanvas(command);
             }
         });
+    }
+
+    private class TranceActivity extends AsyncTask <Void ,Void ,String>{
+
+        private Context context;
+        private String shapeOfDetect;
+        private ProgressDialog progressDialog;
+
+        public TranceActivity(Context context,
+                              String shapeOfDetect) {
+            this.context = context;
+            this.shapeOfDetect = shapeOfDetect;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = ProgressDialog.show(context, "Scan",
+                    "Scan Process ...");
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            return null;
+        }
     }
 
 

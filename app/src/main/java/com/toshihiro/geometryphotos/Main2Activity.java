@@ -3,6 +3,7 @@ package com.toshihiro.geometryphotos;
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -59,9 +60,17 @@ public class Main2Activity extends Activity implements View.OnClickListener {
         } else if (view == btnForGeo) {
             forMuStart();
         } else if (view == btnLearn) {
-            Toast.makeText(Main2Activity.this, "ฟังก์ชันนี้ยังไม่พร้อมใช้งาน", Toast.LENGTH_SHORT).show();
+            learnShape();
+            //Toast.makeText(Main2Activity.this, "ฟังก์ชันนี้ยังไม่พร้อมใช้งาน", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    private void learnShape() {
+        String url = "http://www.google.co.th";
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(Intent.createChooser(intent, "Open with"));
     }
 
     private void forCameraStart() {
