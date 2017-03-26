@@ -56,29 +56,28 @@ public class Main2Activity extends Activity implements View.OnClickListener {
         } else if (view == btnExit) {
             closeActivity();
         } else if (view == btnHowto){
-            Toast.makeText(Main2Activity.this, "ฟังก์ชันนี้ยังไม่พร้อมใช้งาน", Toast.LENGTH_SHORT).show();
+            forHowto();
         } else if (view == btnForGeo) {
             forMuStart();
         } else if (view == btnLearn) {
             learnShape();
-            //Toast.makeText(Main2Activity.this, "ฟังก์ชันนี้ยังไม่พร้อมใช้งาน", Toast.LENGTH_SHORT).show();
+
         }
 
     }
 
-    private void learnShape() {
-        /*String url = "http://www.csclub.ssru.ac.th/s56122201044/finalproject/pdf_file/Report_56122201044.pdf";
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        startActivity(Intent.createChooser(intent, "Open with"));*/
+    private void forHowto() {
+        Intent intent = new Intent(this, HowtoActivity.class);
+        startActivity(intent);
+    }
 
+    private void learnShape() {
         Intent intent = new Intent(this , LearnShape.class);
         startActivity(intent);
     }
 
     private void forCameraStart() {
         Intent intent = new Intent(this, MainActivity.class);
-        //Intent intent = new Intent(this , My_CameraCv.class);
         startActivity(intent);
 
     }

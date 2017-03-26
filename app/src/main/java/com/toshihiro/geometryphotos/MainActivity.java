@@ -484,33 +484,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
 
     }
 
-
-    //Method Set View is Eror
-    /*private void mySetView(int i) {
-        String name;
-        int resDrawable;
-        if (i == 3){
-            name = "รูปสามเหลี่ยม";
-            resDrawable = R.drawable.triangle;
-
-        }else if (i == 4){
-            name = "รุปสี่เหลี่ยม";
-            resDrawable = R.drawable.rectangle;
-        }else if (i == 99){
-            name = "รูปวงกลม";
-            resDrawable = R.drawable.circle;
-        }else {
-            name = "Unknow";
-            resDrawable = R.drawable.waring_icon;
-        }
-
-        //txtName.setText(name);
-        //iconBackground.setImageResource(resDrawable);
-
-
-    }
-    */
-
     /**
      * Helper function to find a cosine of angle between vectors
      * from pt0->pt1 and pt0->pt2
