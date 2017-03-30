@@ -52,6 +52,9 @@ public class DetailCamera extends Activity {
         } else if (shape == 99) {
             strShape = "รูปวงกลม";
             resImg = R.drawable.circle;
+        } else if (shape == 5) {
+            strShape = "รูปห้าเหลี่ยม";
+            resImg = R.drawable.penta;
         } else {
             strShape = "Annonymous";
         }

@@ -387,7 +387,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
             // triangle detection
             if (numberVertices == 3) {
                 if (DISPLAY_IMAGES) {
-                    doSomethingWithContent("triangle");
+                    //doSomethingWithContent("triangle");
                 } else {
                     setLabel(dst, "Traingle", cnt);
                     intent = new Intent(MainActivity.this, DetailCamera.class);
@@ -400,7 +400,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
             }
 
             // rectangle, pentagon and hexagon detection
-            if (numberVertices >= 4 && numberVertices <= 6) {
+            if (numberVertices >= 4 && numberVertices <= 7) {
 
                 List<Double> cos = new ArrayList<>();
                 for (int j = 2; j < numberVertices + 1; j++) {
@@ -428,23 +428,26 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                         intent = new Intent(MainActivity.this, DetailCamera.class);
                         intent.putExtra("Shape", 4);
                         startActivity(intent);
-                        //mySetView(4);
+
                     }
                 }
                 // pentagon detection
                 else if (numberVertices == 5
                         && mincos >= -0.34 && maxcos <= -0.27) {
                     if (!DISPLAY_IMAGES) {
-                        setLabel(dst, "Penta", cnt);
-                        //mySetView(5);
+                        setLabel(dst, "Pentagon", cnt);
+                        intent = new Intent(MainActivity.this, DetailCamera.class);
+                        intent.putExtra("Shape", 5);
+                        startActivity(intent);
+
                     }
                 }
                 // hexagon detection
                 else if (numberVertices == 6
                         && mincos >= -0.55 && maxcos <= -0.45) {
                     if (!DISPLAY_IMAGES) {
-                        setLabel(dst, "Hex", cnt);
-                        //mySetView(6);
+                        //setLabel(dst, "Hex", cnt);
+
                     }
                 }
             }
@@ -469,7 +472,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                         intent = new Intent(MainActivity.this, DetailCamera.class);
                         intent.putExtra("Shape", 99);
                         startActivity(intent);
-                        //mySetView(99);
+
                     }
                 }
 
@@ -532,11 +535,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
 
     }
 
-    /**
-     * makes an logcat/console output with the string detected
-     * displays also a TOAST message and finally sends the command to the overlay
-     * @param content the content of the detected barcode
-     */
     private void doSomethingWithContent(String content) {
         Log.d(TAG, "content: " + content); // for debugging in console
 
@@ -551,30 +549,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
         });
     }
 
-    private class TranceActivity extends AsyncTask <Void ,Void ,String>{
-
-        private Context context;
-        private String shapeOfDetect;
-        private ProgressDialog progressDialog;
-
-        public TranceActivity(Context context,
-                              String shapeOfDetect) {
-            this.context = context;
-            this.shapeOfDetect = shapeOfDetect;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            progressDialog = ProgressDialog.show(context, "Scan",
-                    "Scan Process ...");
-        }
-
-        @Override
-        protected String doInBackground(Void... params) {
-            return null;
-        }
-    }
 
 
 }

@@ -15,9 +15,9 @@
         android:text="New Text"
         android:id="@+id/txt_detail_shape"
         android:textSize="40sp"
-        android:layout_marginBottom="35dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/img_detail_shape"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="97dp" />
 
     <ImageView
         android:layout_width="150dp"

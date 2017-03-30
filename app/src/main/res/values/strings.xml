@@ -11,6 +11,12 @@
     <string name="triangle">สามเหลี่ยม</string>
     <string name="circle">วงกลม</string>
     <string name="title_activity_learn_shape">LearnShape</string>
+    <string name="head1">1. เมื่อเริ่มเข้าหน้าเปิดกล้องแล้วการสแกนจะอยู่ในสถานะปิด</string>
+    <string name="head2">เพราะฉะนั้นให้ทำการเปิดโดยการคลิกที่ปุ่มปิด</string>
+    <string name="head3">จะทำการเข้าสู่สถานะแสกนรูปทันที (เปิด)</string>
+
+
+    <string name="head4">2. และเมื่อกล้องจับรูปภาพได้ก็จะบอกเราทันที (สมมุติเมื่อเจอรูปสี่เหลี่ยม)</string>
 
 
 </resources>

@@ -50,7 +50,7 @@ public class LearnShape extends Activity {
 
 
     private void pdfViewServer() {
-        String url = "https://docs.google.com/viewer?url=http://www.csclub.ssru.ac.th/s56122201044/finalproject/pdf_file/Report_56122201044.pdf";
+        String url = linkUrl;
         webView.loadUrl(url);
         pb_web_view.setVisibility(View.INVISIBLE);
 
