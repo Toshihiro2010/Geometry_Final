@@ -7,6 +7,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.toshihiro.geometryphotos.Splash">
+    tools:context="com.toshihiro.geometryphotos.Splash"
+    android:background="@color/my_background">
 
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/imageView5"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo_geomtery_2" />
 </RelativeLayout>
