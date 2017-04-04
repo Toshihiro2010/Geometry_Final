@@ -50,7 +50,8 @@
         <activity
             android:name="com.toshihiro.geometryphotos.LearnShape"
             android:label="@string/title_activity_learn_shape" />
-        <activity android:name="com.toshihiro.geometryphotos.HowtoActivity"></activity>
+        <activity android:name="com.toshihiro.geometryphotos.HowtoActivity" />
+        <activity android:name="com.toshihiro.geometryphotos.Splash"></activity>
     </application>
 
 </manifest>

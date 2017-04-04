@@ -443,13 +443,13 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                     }
                 }
                 // hexagon detection
-                else if (numberVertices == 6
+                /*else if (numberVertices == 6
                         && mincos >= -0.55 && maxcos <= -0.45) {
                     if (!DISPLAY_IMAGES) {
                         //setLabel(dst, "Hex", cnt);
 
                     }
-                }
+                }*/
             }
             // circle detection
             else {
