@@ -19,9 +19,9 @@
         android:text="Scan"
         android:id="@+id/mySwitch_show"
         android:checked="false"
+        android:textSize="50sp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"

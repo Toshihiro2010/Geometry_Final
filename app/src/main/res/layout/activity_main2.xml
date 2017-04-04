@@ -27,7 +27,7 @@
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:background="@drawable/logo_toshiro" />
+        android:background="@drawable/logo_geomtery_2" />
 
     <Button
         android:layout_width="match_parent"

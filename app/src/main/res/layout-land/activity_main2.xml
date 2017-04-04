@@ -9,16 +9,13 @@
     android:background="#b8b4f5">
 
 
-
-
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="รูปเรขาคณิต"
             android:id="@+id/textView4"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="@dimen/h1"
             android:textColor="@color/nomal_font"
             android:padding="5dp" />
@@ -28,8 +25,8 @@
             android:layout_height="100dp"
             android:id="@+id/imageView"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/logo_toshiro" />
+            android:layout_marginTop="10dp"
+            android:background="@drawable/logo_geomtery_2" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -53,20 +50,20 @@
                     android:layout_marginRight="60dp"
                     android:background="#fea4a4"
                     android:textColor="@color/nomal_font"
-                    android:padding="10dp"/>
+                    android:padding="10dp" />
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/howto"
                     android:id="@+id/btnHowto"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="60dp"
                     android:layout_marginRight="60dp"
                     android:background="#fea4a4"
                     android:textColor="@color/nomal_font"
-                    android:padding="10dp"/>
+                    android:padding="10dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -86,20 +83,20 @@
                     android:layout_marginRight="60dp"
                     android:background="#fea4a4"
                     android:textColor="@color/nomal_font"
-                    android:padding="10dp"/>
+                    android:padding="10dp" />
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/formula_geometry"
                     android:id="@+id/btnForGeo"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="60dp"
                     android:layout_marginRight="60dp"
                     android:background="#fea4a4"
                     android:textColor="@color/nomal_font"
-                    android:padding="10dp"/>
+                    android:padding="10dp" />
 
             </LinearLayout>
         </LinearLayout>

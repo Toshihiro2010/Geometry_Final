@@ -4,6 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="normal_black">#000000</color>
-    <color name="nomal_font">#000dff</color>
+    <color name="nomal_font">#0000ff</color>
     <color name="my_background">#b8b4f5</color>
 </resources>
