@@ -18,5 +18,7 @@
 
     <string name="head4">2. และเมื่อกล้องจับรูปภาพได้ก็จะบอกเราทันที (สมมุติเมื่อเจอรูปสี่เหลี่ยม)</string>
 
+    <string name="title_detail">ชื่อรูป</string>
+
 
 </resources>

@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/title_detail"
         android:id="@+id/txt_detail_shape"
         android:textSize="40sp"
         android:textColor="@color/nomal_font"
@@ -25,7 +25,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:id="@+id/img_detail_shape"
-        android:background="#000000"
+        android:background="#ff0000"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="114dp" />

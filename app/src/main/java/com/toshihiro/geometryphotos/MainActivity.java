@@ -39,7 +39,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.toshihiro.geometryphotos.views.OverlayView;
 
 import ssru.toshihiro.geometryphoto.R;
 
@@ -323,26 +322,23 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
         Imgproc.pyrUp(downscaled, upscaled, gray.size());
 
         if (DETECT_RED_OBJECTS_ONLY) {
-            // convert the image from RGBA to HSV
+
             Imgproc.cvtColor(upscaled, hsv, Imgproc.COLOR_RGB2HSV);
-            // threshold the image for the lower and upper HSV red range
+
             Core.inRange(hsv, HSV_LOW_RED1, HSV_LOW_RED2, lowerRedRange);
             Core.inRange(hsv, HSV_HIGH_RED1, HSV_HIGH_RED2, upperRedRange);
-            // put the two thresholded images together
+
             Core.addWeighted(lowerRedRange, 1.0, upperRedRange, 1.0, 0.0, bw);
-            // apply canny to get edges only
+
             Imgproc.Canny(bw, bw, 0, 255);
         } else {
-            // Use Canny instead of threshold to catch squares with gradient shading
+
             Imgproc.Canny(upscaled, bw, 0, 255);
         }
 
-
-        // dilate canny output to remove potential
-        // holes between edge segments
         Imgproc.dilate(bw, bw, new Mat(), new Point(-1, 1), 1);
 
-        // find contours and store them all as a list
+
         List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
         contourImage = bw.clone();
         Imgproc.findContours(
@@ -353,14 +349,13 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                 Imgproc.CHAIN_APPROX_SIMPLE
         );
 
-        // loop over all found contours
         if(myCheck == 1 ){
 
 
         for (MatOfPoint cnt : contours) {
             MatOfPoint2f curve = new MatOfPoint2f(cnt.toArray());
 
-            // approximates a polygonal curve with the specified precision
+
             Imgproc.approxPolyDP(
                     curve,
                     approxCurve,
@@ -373,9 +368,8 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
 
             Log.d(TAG, "vertices:" + numberVertices);
 
-            // ignore to small areas
             if (Math.abs(contourArea) < 100
-                // || !Imgproc.isContourConvex(
+
                     ) {
                 continue;
             }
@@ -393,7 +387,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                     intent = new Intent(MainActivity.this, DetailCamera.class);
                     intent.putExtra("Shape", 3);
                     startActivity(intent);
-                    //mySetView(3);
+
                 }
 
 
@@ -422,7 +416,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                         && mincos >= -0.1 && maxcos <= 0.3
                         ) {
                     if (DISPLAY_IMAGES) {
-                        //doSomethingWithContent("rectangle");
+
                     } else {
                         setLabel(dst, "Rectangle", cnt);
                         intent = new Intent(MainActivity.this, DetailCamera.class);
@@ -482,15 +476,12 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
 
         }
 
-        // return the matrix / image to show on the screen
+
         return dst;
 
     }
 
-    /**
-     * Helper function to find a cosine of angle between vectors
-     * from pt0->pt1 and pt0->pt2
-     */
+
     private static double angle(Point pt1, Point pt2, Point pt0) {
         double dx1 = pt1.x - pt0.x;
         double dy1 = pt1.y - pt0.y;
@@ -502,12 +493,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
         );
     }
 
-    /**
-     * display a label in the center of the given contur (in the given image)
-     * @param im the image to which the label is applied
-     * @param label the label / text to display
-     * @param contour the contour to which the label should apply
-     */
+
     private void setLabel(Mat im, String label, MatOfPoint contour) {
         int fontface = Core.FONT_HERSHEY_SIMPLEX;
         double scale = 3;//0.4;
@@ -521,15 +507,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                 r.x + ((r.width - text.width) / 2),
                 r.y + ((r.height + text.height) /2)
         );
-        /*
-        Imgproc.rectangle(
-                im,
-                new Point(r.x + 0, r.y + baseline[0]),
-                new Point(r.x + text.width, r.y -text.height),
-                new Scalar(255,255,255),
-                -1
-                );
-        */
+
 
         Imgproc.putText(im, label, pt, fontface, scale, RGB_RED, thickness);
 

@@ -25,7 +25,7 @@
             android:layout_height="100dp"
             android:id="@+id/imageView"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/logo_geomtery_2" />
 
         <LinearLayout
@@ -50,20 +50,20 @@
                     android:layout_marginRight="60dp"
                     android:background="#fea4a4"
                     android:textColor="@color/nomal_font"
-                    android:padding="10dp" />
+                    android:padding="10dp"/>
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/howto"
                     android:id="@+id/btnHowto"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="60dp"
                     android:layout_marginRight="60dp"
                     android:background="#fea4a4"
                     android:textColor="@color/nomal_font"
-                    android:padding="10dp" />
+                    android:padding="10dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -83,37 +83,41 @@
                     android:layout_marginRight="60dp"
                     android:background="#fea4a4"
                     android:textColor="@color/nomal_font"
-                    android:padding="10dp" />
+                    android:padding="10dp"/>
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/formula_geometry"
                     android:id="@+id/btnForGeo"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="60dp"
                     android:layout_marginRight="60dp"
                     android:background="#fea4a4"
                     android:textColor="@color/nomal_font"
-                    android:padding="10dp" />
+                    android:padding="10dp"/>
 
             </LinearLayout>
+
         </LinearLayout>
 
-    <Button
-        android:layout_width="230dp"
-        android:layout_height="match_parent"
-        android:text="@string/exit"
-        android:id="@+id/btnExit"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"
-        android:textColor="@color/nomal_font"
-        android:layout_marginBottom="20dp"
-        android:background="#fea4a4"
-        android:layout_gravity="center_horizontal"
-        android:padding="10dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:text="@string/exit"
+            android:id="@+id/btnExit"
+            android:textColor="@color/nomal_font"
+            android:background="#fea4a4"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
 
 </LinearLayout>
